@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RubyInterpreter_FOP-Capstone.iml" filepath="$PROJECT_DIR$/RubyInterpreter_FOP-Capstone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KotlinInterpreter_FOP-Capstone.iml" filepath="$PROJECT_DIR$/KotlinInterpreter_FOP-Capstone.iml" />
     </modules>
   </component>
 </project>
