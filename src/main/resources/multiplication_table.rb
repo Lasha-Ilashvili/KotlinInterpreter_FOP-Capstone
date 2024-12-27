@@ -1,13 +1,12 @@
-# Function to generate and print the multiplication table
-def multiplication_table(number)
-  (1..10).each do |i|
-    puts number * i
-  end
-end
-
-# Get user input
 puts "Enter a number to generate its multiplication table:"
 number = gets.chomp.to_i
 
-# Generate and print the multiplication table
-multiplication_table(number)
+i = 1
+
+# Generate and print the multiplication table using a loop
+while i <= 10
+  result = number * i
+  puts result
+  i = i + 1
+end
+
