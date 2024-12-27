@@ -1,21 +1,23 @@
+puts "Enter a number:"
+n = gets.chomp.to_i
 
-def isPrime(n)
-  return false if n <= 1
+is_prime = true
 
-  for i in 2..Math.sqrt(n).to_i
+if n <= 1
+  is_prime = false
+else
+  i = 2
+  while i * i <= n
     if n % i == 0
-      return false  
+      is_prime = false
+      break
     end
+    i = i + 1
   end
-
-  return true
 end
 
- puts "Enter a number:"
- n = gets.chomp.to_i  
-
- if isPrime(n)
-   puts "#{n} is a prime number."
- else
+if is_prime
+  puts "#{n} is a prime number."
+else
   puts "#{n} is not a prime number."
 end

@@ -1,11 +1,14 @@
-# Function to calculate the sum of digits
-def sum_of_digits(number)
-  number.to_s.chars.map(&:to_i).sum
-end
-
-# Get user input
 puts "Enter a number to calculate the sum of its digits:"
 number = gets.chomp.to_i
 
-# Calculate and print the sum of digits
-puts "The sum of the digits is: #{sum_of_digits(number)}"
+sum = 0
+
+# Calculate the sum of the digits using a loop
+while number > 0
+  digit = number % 10
+  sum = sum + digit
+  number = number / 10
+end
+
+# Print the sum of the digits
+puts "The sum of the digits is: #{sum}"
