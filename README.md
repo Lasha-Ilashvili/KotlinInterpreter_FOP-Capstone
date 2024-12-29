@@ -146,11 +146,19 @@ print("Value of y: $y") // Output: Value of y: 30
 
 ## How to Run
 
+### How to Write Your Kotlin-Like Code?
+In this project, users can:
+- Modify the `code` variable in the `main` method to include their Kotlin-like code.
+- Write the code manually in the terminal.
+- Provide the path to a file containing the code.
+- Choose from some pre-written algorithms included in the project.
+
+### Steps to Execute:
 1. Clone the repository to your local machine.
 2. Open the project in IntelliJ or your preferred Java IDE.
-3. Navigate to the `SimpleKotlinInterpreter` class.
-4. Modify the `code` variable in the `main` method to include your Kotlin-like code.
-5. Run the `SimpleKotlinInterpreter` class to execute the code.
+3. Select one of the options to provide your Kotlin-like code (modify `code` variable, use terminal input, file path, or pre-written algorithm).
+4. Run the `SimpleKotlinInterpreter` class to execute the code.
+
 
 ---
 
