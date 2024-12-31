@@ -17,13 +17,13 @@ fun main() {
                 isPrime = false
                 break
             }
-            i++
+            i += 1
         }
     }
 
     if (isPrime) {
-        println("Is a prime number.")
+        println("$n is a prime number.")
     } else {
-        println("Is not a prime number.")
+        println("$n is not a prime number.")
     }
 }

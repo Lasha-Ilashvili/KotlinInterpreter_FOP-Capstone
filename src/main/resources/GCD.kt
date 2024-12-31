@@ -21,6 +21,6 @@ fun main() {
             }
         }
 
-        println("The GCD is: " + num1)
+        println("The GCD is: $num1")
     }
 }
