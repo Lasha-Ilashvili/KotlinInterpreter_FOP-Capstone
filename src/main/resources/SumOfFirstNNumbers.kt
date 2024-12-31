@@ -14,9 +14,9 @@ fun main() {
 
         while (i <= n) {
             sum += i
-            i++
+            i += 1
         }
 
-        println("The sum of the first " + n + " numbers is: " + sum)
+        println("The sum of the first $n numbers is: $sum")
     }
 }

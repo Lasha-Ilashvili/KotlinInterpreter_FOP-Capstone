@@ -16,5 +16,5 @@ fun main() {
         number /= 10
     }
 
-    println("The largest digit is: " + largest)
+    println("The largest digit is: $largest")
 }

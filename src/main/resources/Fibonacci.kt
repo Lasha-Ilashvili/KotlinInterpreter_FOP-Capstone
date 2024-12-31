@@ -22,10 +22,10 @@ fun main() {
                 fib = a + b
                 a = b
                 b = fib
-                i++
+                i += 1
             }
         }
 
-        println("The " + n + "th Fibonacci number is: " + fib)
+        println("The ${n}th Fibonacci number is: $fib")
     }
 }

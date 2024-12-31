@@ -14,5 +14,5 @@ fun main() {
         number /= 10
     }
 
-    println("The sum of the digits is: " + sum)
+    println("The sum of the digits is: $sum")
 }

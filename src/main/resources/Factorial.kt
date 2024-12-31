@@ -13,9 +13,9 @@ fun main() {
 
         while (i <= n) {
             fact *= i
-            i++
+            i += 1
         }
 
-        println("The factorial of " + n + "is: " + "fact")
+        println("The factorial of $n is: $fact")
     }
 }

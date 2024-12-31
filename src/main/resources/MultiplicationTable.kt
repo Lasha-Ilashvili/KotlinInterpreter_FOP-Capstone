@@ -11,6 +11,6 @@ fun main() {
     while (i <= 10) {
         val result = number * i
         println(result)
-        i++
+        i += 1
     }
 }

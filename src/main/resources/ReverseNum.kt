@@ -14,5 +14,5 @@ fun main() {
         n /= 10
     }
 
-    println("The reversed number is: " + reversed)
+    println("The reversed number is: $reversed")
 }
