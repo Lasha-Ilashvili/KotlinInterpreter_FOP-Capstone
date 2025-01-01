@@ -17,10 +17,9 @@ This document outlines the contributions made by each member of the group to the
 - Implemented exception handling mechanisms.
 - Developed the `Scope` and `Value` files and classes.
 
-
 ### 4. Lasha Ilashvili
 - Completed all remaining components of the project, including:
   - Utility classes and methods.
   - Main execution logic.
   - Support files for the interpreter.
- 
+  - architecture planning
