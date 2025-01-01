@@ -1,10 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-
     print("Enter a number (N): ")
-    val n = scanner.nextInt()
+    val n = readln().toInt()
 
     if (n < 0) {
         println("Please enter a non-negative number.")
@@ -14,7 +10,7 @@ fun main() {
 
         while (i <= n) {
             sum += i
-            i += 1
+            i++
         }
 
         println("The sum of the first $n numbers is: $sum")

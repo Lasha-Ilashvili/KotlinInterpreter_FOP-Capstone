@@ -1,9 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
     print("Enter the value of N to find the Nth Fibonacci number: ")
-    val n = scanner.nextInt()
+    val n = readln().toInt()
 
     if (n < 0) {
         println("Fibonacci numbers are not defined for negative indices.")
@@ -22,7 +19,7 @@ fun main() {
                 fib = a + b
                 a = b
                 b = fib
-                i += 1
+                i++
             }
         }
 

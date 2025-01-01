@@ -1,10 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-
     print("Enter a number to calculate the sum of its digits: ")
-    var number = scanner.nextInt()
+    var number = readln().toInt()
 
     var sum = 0
 

@@ -1,10 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-
     print("Enter a number: ")
-    var n = scanner.nextInt()
+    var n = readln().toInt()
 
     var reversed = 0
 

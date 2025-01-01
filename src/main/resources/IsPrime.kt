@@ -1,10 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-
     print("Enter a number: ")
-    val n = scanner.nextInt()
+    val n = readln().toInt()
 
     var isPrime = true
 
@@ -17,7 +13,7 @@ fun main() {
                 isPrime = false
                 break
             }
-            i += 1
+            i++
         }
     }
 
