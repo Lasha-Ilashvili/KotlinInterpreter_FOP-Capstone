@@ -1,9 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
     print("Enter a number (N): ")
-    val n = scanner.nextInt()
+    val n = readln().toInt()
 
     if (n < 0) {
         println("Please enter a non-negative number.")
@@ -13,7 +10,7 @@ fun main() {
 
         while (i <= n) {
             fact *= i
-            i += 1
+            i++
         }
 
         println("The factorial of $n is: $fact")

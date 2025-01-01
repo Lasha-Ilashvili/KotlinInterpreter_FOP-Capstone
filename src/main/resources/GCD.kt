@@ -1,13 +1,9 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-
     print("Enter the first number: ")
-    var num1 = scanner.nextInt()
+    var num1 = readln().toInt()
 
     print("Enter the second number: ")
-    var num2 = scanner.nextInt()
+    var num2 = readln().toInt()
 
     if (num1 <= 0 || num2 <= 0) {
         println("Please enter positive numbers only.")

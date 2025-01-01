@@ -1,10 +1,6 @@
-import java.util.Scanner
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-
     print("Enter a number to find the largest digit: ")
-    var number = scanner.nextInt()
+    var number = readln().toInt()
 
     var largest = 0
 
