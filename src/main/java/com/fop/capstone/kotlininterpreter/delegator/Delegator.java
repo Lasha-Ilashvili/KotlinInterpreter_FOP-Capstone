@@ -5,7 +5,6 @@ import com.fop.capstone.kotlininterpreter.model.exception.BreakInvokedException;
 import com.fop.capstone.kotlininterpreter.model.scope.ScopeManager;
 import com.fop.capstone.kotlininterpreter.model.value.Value;
 
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -402,37 +401,5 @@ public class Delegator {
 
     private boolean isAssignment(String line) {
         return line.matches("\\w+\\s*(=|\\+=|-=|\\*=|/=|%=|\\+\\+)\\s*.*");
-    }
-
-    public static void main(String[] args) throws IOException {
-        String code = """
-                fun main() {
-                     print("Enter the first number: ")
-                         var num1 = readln().toInt()
-                
-                         print("Enter the second number: ")
-                         var num2 = readln().toInt()
-                
-                         if (num1 <= 0 || num2 <= 0) {
-                             println("Please enter positive numbers only.")
-                         } else {
-                
-                             while (num1 != num2) {
-                                 if (num1 > num2) {
-                                     num1 -= num2
-                                 } else {
-                                     num2 -= num1
-                                 }
-                             }
-                
-                             println("The GCD is: $num1")
-                         }
-                    }
-                """;
-
-        Delegator interpreter = new Delegator();
-        try (Scanner scanner = new Scanner(System.in)) {
-            interpreter.interpret(code, scanner);
-        }
     }
 }
