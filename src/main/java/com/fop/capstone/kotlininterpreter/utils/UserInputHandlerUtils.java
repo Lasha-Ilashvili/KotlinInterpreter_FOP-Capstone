@@ -27,27 +27,66 @@ public final class UserInputHandlerUtils {
      * @throws IOException if an I/O error occurs while reading files.
      */
     public static String getUserInputCode(Scanner scanner) throws IOException {
+        showMainMenu();
+
+        int choice = getValidatedChoice(scanner, 4, "Enter your choice (1-4): ");
+
+        return switch (choice) {
+            case 1 -> processAlgorithmFiles(scanner);
+            case 2 -> processCustomFilePath(scanner);
+            case 3 -> processDirectInput(scanner);
+            default -> null;
+        };
+    }
+
+    /**
+     * Prompts the user with a yes/no question to determine if they want to replay the execution.
+     *
+     * <p>
+     * This method continuously prompts the user until a valid input ('Y' or 'N') is provided.
+     * </p>
+     *
+     * @return {@code true} if the user wants to replay, {@code false} otherwise.
+     */
+    public static boolean getUserAnswer() {
         while (true) {
-            showMainMenu();
+            System.out.print("\nDo you want to try again? (Y/N): ");
 
-            int choice = getValidatedChoice(scanner, 4, "Enter your choice (1-4): ");
+            String answer = scanner.next();
 
-            switch (choice) {
-                case 1:
-                    return processAlgorithmFiles(scanner);
-                case 2:
-                    return processCustomFilePath(scanner);
-                case 3:
-                    return processDirectInput(scanner);
-                default:
-                    System.out.println("Exiting the program. Goodbye!");
+            if (answer.equalsIgnoreCase("Y")) {
+                return true;
             }
+
+            if (answer.equalsIgnoreCase("N")) {
+                return false;
+            }
+
+            System.out.println("\nInvalid input. Please enter 'Y' or 'N'.");
         }
+    }
+
+    /**
+     * Provides a {@link Scanner} object for reading user input.
+     *
+     * @return a {@link Scanner} object.
+     */
+    public static Scanner provideScanner() {
+        return scanner;
+    }
+
+    /**
+     * Closes the {@link Scanner} object and prints an exit message.
+     */
+    public static void closeScanner() {
+        System.out.println("\nExiting the program. Goodbye!");
+        scanner.close();
     }
 
     /* IMPLEMENTATION DETAILS */
 
     private static final String RESOURCES_DIRECTORY = "src/main/resources";
+    private static final Scanner scanner = new Scanner(System.in);
 
     /**
      * Private constructor to prevent instantiation
@@ -69,7 +108,7 @@ public final class UserInputHandlerUtils {
 
         displayFileList(Objects.requireNonNull(files));
 
-        int fileChoice = getValidatedChoice(scanner, files.length, "Enter the number of the algorithm to execute: ");
+        int fileChoice = getValidatedChoice(scanner, files.length, "\nEnter the number of the algorithm to execute: ");
 
         return FileUtils.readFile(files[fileChoice - 1].toPath());
     }
@@ -91,9 +130,9 @@ public final class UserInputHandlerUtils {
 
                 if (choice >= 1 && choice <= maxOption) return choice;
 
-                System.out.println("Invalid choice. Please select a number between 1 and " + maxOption);
+                System.out.println("\nInvalid choice. Please select a number between 1 and " + maxOption);
             } else {
-                System.out.println("Invalid input. Please enter a valid number");
+                System.out.println("\nInvalid input. Please enter a valid number");
                 scanner.nextLine();
             }
         }
@@ -109,7 +148,7 @@ public final class UserInputHandlerUtils {
 
             if (FileUtils.fileExists(filePath)) return FileUtils.readFile(filePath);
 
-            System.out.println("Invalid file path. Please try again.");
+            System.out.println("\nInvalid file path. Please try again.");
         }
     }
 

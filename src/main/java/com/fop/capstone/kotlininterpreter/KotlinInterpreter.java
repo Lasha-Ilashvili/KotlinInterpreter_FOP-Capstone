@@ -11,9 +11,9 @@ import java.util.Scanner;
  * <p>
  * The interpreter supports fundamental programming constructs:
  * <ul>
- *     <li>Variable declarations</li>
- *     <li>Arithmetic and boolean operations</li>
- *     <li>Simple I/O</li>
+ *     <li>Integer and boolean type variables</li>
+ *     <li>Complex arithmetic and boolean operations</li>
+ *     <li>I/O</li>
  *     <li>Control flow and while loop</li>
  * </ul>
  * </p>
@@ -29,8 +29,10 @@ public class KotlinInterpreter {
      * </p>
      */
     public static void interpret() {
-        ExceptionHandlerUtils.handle(KotlinInterpreter::execute);
+        ExceptionHandlerUtils.handle(KotlinInterpreter::execute, KotlinInterpreter::replay);
     }
+
+    /* IMPLEMENTATION DETAILS */
 
     /**
      * Core execution method.
@@ -45,6 +47,34 @@ public class KotlinInterpreter {
      */
     private static void execute(Scanner scanner) throws Exception {
         String userInputCode = UserInputHandlerUtils.getUserInputCode(scanner);
-        System.out.println("User input code:\n" + userInputCode);
+
+        if (userInputCode == null) {
+            return;
+        }
+    }
+
+    /**
+     * Determines if the user wants to replay the execution.
+     *
+     * <p>
+     * This method prompts the user with a yes/no question and returns the result.
+     * </p>
+     *
+     * @return {@code true} if the user wants to replay, {@code false} otherwise.
+     */
+    private static boolean replay() {
+        return UserInputHandlerUtils.getUserAnswer();
+    }
+
+    /**
+     * Main method for testing purposes.
+     *
+     * <p>
+     * This method allows the user to test the code before using it in actual scenarios.
+     * The actual usage of the interpreter should be done through the {@link #interpret()} method.
+     * </p>
+     */
+    public static void main(String[] args) {
+        interpret();
     }
 }
