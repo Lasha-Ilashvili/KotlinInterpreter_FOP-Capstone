@@ -1,192 +1,62 @@
-# KIUPRoject
+# Kotlin Interpreter
 
-# Kotlin-Like Simple Interpreter
+This project provides a simple interpreter for a subset of the Kotlin programming language, designed to process and execute Kotlin code interactively. It supports a range of programming constructs and provides a mechanism to handle both user-defined scripts and predefined algorithms.
 
-## Project Overview
+## Features
 
-This project implements a simple interpreter for a minimal subset of Kotlin-like syntax. It provides basic programming constructs such as variable declaration, arithmetic operations, and print functionality with Kotlin-style string interpolation. The interpreter is written in **Java** and designed to showcase the fundamental principles of interpreter design.
+- **Data Types and Variables**:
+    - Integer and Boolean variables.
+    - Support for both mutable (`var`) and immutable (`val`) variables.
+    - Variable lifecycle management across nested blocks and scopes.
 
-The interpreter can parse and execute simple code snippets, enabling users to understand how interpreters evaluate expressions, process variables, and manage program execution.
+- **Arithmetic and Boolean Expressions**:
+    - Complex boolean and arithmetic expressions are supported.
+    - Operators include `+`, `-`, `*`, `/`, `%`, `&&`, `||`, `!`, `==`, `!=`, `<`, `>`, `<=`, `>=`.
 
----
+- **Control Flow**:
+    - Supports `if`, `else if`, and `else` blocks for conditional logic.
+    - Includes `while` loops with support for nested loops and blocks.
+    - Supports the `break` keyword to exit loops.
 
-## Key Features
+- **I/O**:
+    - Provides simple input and output operations using `readln()` for user input and `print`/`println` for output.
+    - Supports Kotlin-style string interpolation in print statements.
 
-### 1. **Variable Declaration**
-- **Mutable Variables (`var`)**:
-    - Variables declared with `var` can be reassigned after initialization.
-    - Example:
-      ```kotlin
-      var x = 10
-      x = 20 // Allowed
-      ```
+- **Expressions**:
+    - Evaluates arithmetic and boolean expressions dynamically.
+    - Handles post-increment (`++`) and unary minus (`-`) operators.
 
-- **Immutable Variables (`val`)**:
-    - Variables declared with `val` cannot be reassigned after initialization.
-    - Example:
-      ```kotlin
-      val y = 15
-      y = 25 // Error: Cannot reassign immutable variable 'y'
-      ```
+- **Error Handling**:
+    - Centralized error handling for syntax errors, runtime exceptions, and input mismatches.
+    - Provides meaningful error messages for debugging.
 
-### 2. **Arithmetic Operations**
-The interpreter supports the following arithmetic operations:
-- Addition (`+`), Subtraction (`-`), Multiplication (`*`), Division (`/`), Modulus (`%`).
+- **Code Execution**:
+    - Executes user-provided code in one of the following ways:
+        1. From a pre-written algorithm in the `resources` directory.
+        2. From a custom file path specified by the user.
+        3. By directly entering code in the console.
 
-#### Usage Example:
-```kotlin
-var result = (10 + 5) * 2
-print("Result: $result") // Output: Result: 30
-```
+## Usage
 
-### 3. **Compound Assignment**
-- Supported compound operators: `+=`, `-=`, `*=`, `/=`, `%=`.
-- Example:
-    ```kotlin
-    var x = 10
-    x += 5 // x is now 15
-    x *= 2 // x is now 30
-    ```
+1. **Launch the Interpreter**:
+   Run the `main` method in the `KotlinInterpreter` class.
 
-### 4. **Print Statements**
-- Print values using Kotlin-style interpolation:
-    - Single-variable interpolation: `$variable`.
-    - Expression interpolation: `${expression}`.
-- Example:
-    ```kotlin
-    var x = 10
-    print("Value of x: $x") // Output: Value of x: 10
-    val y = x * 2
-    print("Double of x: ${x * 2}") // Output: Double of x: 20
-    ```
+2. **Choose Input Mode**:
+   Select one of the following options from the menu:
+    - Execute a predefined algorithm.
+    - Read a Kotlin script from a file.
+    - Enter Kotlin code directly into the console.
+    - Exit the program.
 
-### 5. **Error Handling**
-- The interpreter provides meaningful error messages for:
-    - Using undeclared variables.
-    - Reassigning immutable (`val`) variables.
-    - Invalid syntax (e.g., mismatched parentheses, unknown operations).
-
-#### Error Examples:
-```kotlin
-val x = 10
-   // x = 20 // Error: Cannot reassign immutable variable 'x'
-
-var y = (10 + 5 )// Error: Mismatched parentheses
-```
-
----
-
-## Limitations
-
-- **Conditionals**: `if` statements are not supported.
-- **Loops**: Iterative constructs like `while` are not yet implemented.
-- **Advanced Constructs**: Recursion, functions, and arrays are not within the scope of this project.
-
----
-
-## How It Works
-
-### Code Execution Workflow:
-1. **Parsing**: The interpreter reads the input code line by line and identifies commands such as variable declarations, reassignments, and print statements.
-2. **Evaluation**:
-    - Arithmetic expressions are processed using an `ArithmeticEvaluator` class, which:
-        - Converts infix expressions to postfix (Reverse Polish Notation).
-        - Evaluates the postfix expression using a stack.
-        - Resolves variable values dynamically during evaluation.
-3. **Execution**:
-    - Executes parsed commands.
-    - Maintains a map of variable names and their values.
-    - Enforces rules for immutable (`val`) and mutable (`var`) variables.
-
----
-
-## Supported Syntax
-
-The following constructs are supported:
-1. Variable Declarations:
-    ```kotlin
-    var x = 10
-    val y = x + 5
-    ```
-2. Arithmetic Operations:
-    ```kotlin
-    var result = (10 + 5) * 2
-    ```
-3. Reassignment:
-    ```kotlin
-    var x = 10
-    x += 5
-    x *= 2
-    ```
-4. Print Statements:
-    ```kotlin
-    print("Value of x: $x")
-    ```
-5. Interpolation:
-    ```kotlin
-    print("Double of x: ${x * 2}")
-    ```
-
----
-
-## Example Code
-
-Here’s an example program that can be executed with this interpreter:
-
-```kotlin
-var x = 10
-print("Initial value of x: $x") // Output: Initial value of x: 10
-x += 5
-print("Updated value of x: $x") // Output: Updated value of x: 15
-val y = x * 2
-print("Value of y: $y") // Output: Value of y: 30
-```
-
----
-
-## How to Run
-
-### How to Write Your Kotlin-Like Code?
-In this project, users can:
-- Modify the `code` variable in the `main` method to include their Kotlin-like code.
-- Write the code manually in the terminal.
-- Provide the path to a file containing the code.
-- Choose from some pre-written algorithms included in the project.
-
-### Steps to Execute:
-1. Clone the repository to your local machine.
-2. Open the project in IntelliJ or your preferred Java IDE.
-3. Select one of the options to provide your Kotlin-like code (modify `code` variable, use terminal input, file path, or pre-written algorithm).
-4. Run the `SimpleKotlinInterpreter` class to execute the code.
-
-
----
-
-## Project Structure
-
-- **ArithmeticEvaluator**:
-    - Handles arithmetic expression evaluation.
-    - Converts infix to postfix notation.
-    - Evaluates postfix expressions using a stack.
-
-- **SimpleKotlinInterpreter**:
-    - Manages code parsing, execution, and variable storage.
-    - Handles commands like `var`, `val`, and `print`.
-
----
-
-## Learning Outcomes
-
-By working on this project, you will:
-- Understand how interpreters work, from parsing to execution.
-- Learn to process arithmetic expressions using postfix evaluation.
-- Gain insights into error handling for programming constructs.
-- Appreciate the simplicity and power of designing a custom interpreter.
-
----
-
-
-
-## Authors
-
-This project was collaboratively developed to understand and implement the fundamental concepts of interpreter design.
+3. **Supported Kotlin Code**:
+   Provide valid Kotlin code using the supported constructs. For example:
+   ```kotlin
+   fun main() {
+       print("Enter a number: ")
+       var num = readln().toInt()
+       if (num > 0) {
+           println("Positive number!")
+       } else {
+           println("Non-positive number.")
+       }
+   }
