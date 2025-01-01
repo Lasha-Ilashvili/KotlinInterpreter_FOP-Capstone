@@ -1,5 +1,6 @@
 package com.fop.capstone.kotlininterpreter;
 
+import com.fop.capstone.kotlininterpreter.delegator.Delegator;
 import com.fop.capstone.kotlininterpreter.utils.ExceptionHandlerUtils;
 import com.fop.capstone.kotlininterpreter.utils.UserInputHandlerUtils;
 
@@ -51,6 +52,9 @@ public class KotlinInterpreter {
         if (userInputCode == null) {
             return;
         }
+
+        Delegator delegator = new Delegator();
+        delegator.interpret(userInputCode, scanner);
     }
 
     /**
