@@ -10,7 +10,7 @@ It supports various user-friendly features with intuitive design.
 ## Features
 
 ### Supported Constructs
-- **Data Types**: Supports integer and boolean variables.
+- **Data Types**: Supports integer and boolean types.
 - **Variable Declaration**: Supports `var` (mutable) and `val` (immutable).
 - **Arithmetic and Boolean Operations**:
     - Operators: `+`, `-`, `*`, `/`, `%`, `>`, `<`, `>=`, `<=`, `==`, `!=`, `&&`, `||`, `!`.
@@ -19,7 +19,7 @@ It supports various user-friendly features with intuitive design.
     - Complex logical and arithemtic expressions, with or without parentheses ensuring correct precedence.
 - **Control Flow**:
     - `if`, `else if`, `else` blocks.
-    - `while` loops with `break` keyword suppoert.
+    - `while` loops with `break` keyword support.
     - Nesting of any levels of above blocks.
 - **Input/Output (I/O)**:
     - Read input using `readln().toInt()` and display results using `print` or `println`.
