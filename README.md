@@ -2,23 +2,27 @@
 # Kotlin Interpreter
 
 ## Overview
-The Kotlin Interpreter is a lightweight and efficient tool for interpreting Kotlin-like code. It is designed to provide a streamlined environment for experimenting with fundamental Kotlin programming constructs. Users can run predefined algorithms, enter code directly, or load scripts from files.
+The Kotlin Interpreter is an efficient tool for interpreting Kotlin code. It is designed to provide a streamlined environment for experimenting with fundamental Kotlin programming constructs.
+It supports various user-friendly features with intuitive design.
 
 ---
 
 ## Features
 
 ### Supported Constructs
-- **Data Types**: Supports integer and boolean variables.
+- **Data Types**: Supports integer and boolean types.
 - **Variable Declaration**: Supports `var` (mutable) and `val` (immutable).
 - **Arithmetic and Boolean Operations**:
     - Operators: `+`, `-`, `*`, `/`, `%`, `>`, `<`, `>=`, `<=`, `==`, `!=`, `&&`, `||`, `!`.
-    - Complex logical expressions with correct precedence.
+    - Short-hand operators: `+=`, `-=`, `*=`, `/=`, `%=`
+    - Post-increment
+    - Complex logical and arithemtic expressions, with or without parentheses ensuring correct precedence.
 - **Control Flow**:
     - `if`, `else if`, `else` blocks.
-    - `while` loops with support for nesting and `break`.
+    - `while` loops with `break` keyword support.
+    - Nesting of any levels of above blocks.
 - **Input/Output (I/O)**:
-    - Read input using `readln()` and display results using `print` or `println`.
+    - Read input using `readln().toInt()` and display results using `print` or `println`.
 - **String Interpolation**:
     - Supports `$variable` and `${expression}` for dynamic content in strings.
 - **Scope Management**:
@@ -26,25 +30,29 @@ The Kotlin Interpreter is a lightweight and efficient tool for interpreting Kotl
     - Nested blocks ensure proper scoping rules.
 
 ### Efficiency
-- Handles deeply nested control structures and complex expressions efficiently.
-- Centralized exception handling ensures robustness.
+- Handles deeply nested control structures and complex expressions efficiently using recursion and stack.
+- Centralized exception handling ensures robustness and ability to control the flow.
 
 ---
 
 ## User Flow
 
 1. **Menu Options**:
-    - Run a predefined algorithm from the `resources` directory.
-    - Load a Kotlin script from a custom file path.
-    - Enter Kotlin-like code directly via the console.
-    - Exit the interpreter.
-    - Support for user input errors and ability to start over.
+    - At the start user is provided with 4 options.
+      1. Run a predifined algorithm.
+         - 10 numbered algorithms are presented for user to choose from 
+      2. Load a kotlin file from a custom path.
+         - User is asked to type a path.
+      4. Enter kotlin code directly via the console.
+         - User is asked to type in a kotlin code. 
+      6. Quit
+    - In any case, after application is terminated (Whether successfully or by inputing incorrect code or user chose Quit option) <br> user is asked to start over
 
-2. **Execution**:
+3. **Execution**:
     - Code is executed in real-time, with outputs and errors displayed to the console.
 
-3. **Error Handling**:
-    - Detailed error messages for syntax issues, unmatched braces, undefined variables, and runtime errors like division by zero.
+4. **Error Handling**:
+    - Handles all incorrect user choices, asks again for correct format, identifies common pitfalls when communicating with user.
 
 ---
 
@@ -57,7 +65,7 @@ The Kotlin Interpreter is a lightweight and efficient tool for interpreting Kotl
    cd <repository-directory>
    ```
 
-2. Compile the code using your preferred Java IDE or tool.
+2. Compile the code using your preferred Java IDE or tool. 
 
 ### Running the Interpreter
 1. Use `KotlinInterpreter` class static method `interpret()`.
@@ -66,7 +74,7 @@ The Kotlin Interpreter is a lightweight and efficient tool for interpreting Kotl
 3. You can run class directly and test before usage.
 ---
 
-## Error Handling
+## General Error Handling
 
 ### Types of Errors
 - **Syntax Errors**:
@@ -95,3 +103,7 @@ The Kotlin Interpreter is a lightweight and efficient tool for interpreting Kotl
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
 3. Submit a pull request for review.
+4. Make sure that your code is compiling, <br> or else CI will fail and you will be unable to merge.
+5. Add at least one reviewer, this is a must and you will fail to merge otherwise.
+6. All discussions or required changes must be resolved before being able to merge.
+7. Good luck!
